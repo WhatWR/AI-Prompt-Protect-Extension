@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — AI Privacy Guard</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0d14;
+    --bg2: #13131e;
+    --border: #1e1e2e;
+    --accent: #00e5a0;
+    --text: #e2e2ec;
+    --muted: #6b6b88;
+    --muted2: #9898b8;
+    --danger: #ff4f6a;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    padding: 0 16px 80px;
+  }
+
+  /* Top bar */
+  .topbar {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    margin: 0 -16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .topbar-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, #00e5a0, #00966b);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .site-name { font-size: 14px; font-weight: 600; color: var(--text); }
+  .site-sub  { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .badge {
+    margin-left: auto;
+    background: rgba(0,229,160,.1);
+    border: 1px solid rgba(0,229,160,.25);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 11px;
+    color: var(--accent);
+    font-family: monospace;
+  }
+
+  /* Content */
+  .content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 32px 0;
+  }
+
+  .hero { margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .tag {
+    display: inline-block;
+    font-size: 11px; font-family: monospace; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .12em;
+    color: var(--accent);
+    background: rgba(0,229,160,.08);
+    border: 1px solid rgba(0,229,160,.2);
+    border-radius: 20px;
+    padding: 3px 12px;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 36px; font-weight: 700; letter-spacing: -.02em;
+    color: #fff; line-height: 1.2; margin-bottom: 12px;
+  }
+  .hero-sub {
+    font-size: 15px; color: var(--muted2); line-height: 1.7;
+    max-width: 580px;
+  }
+  .meta {
+    margin-top: 20px;
+    display: flex; gap: 24px;
+    font-size: 12px; color: var(--muted);
+    font-family: monospace;
+  }
+  .meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* TL;DR box */
+  .tldr {
+    background: rgba(0,229,160,.06);
+    border: 1px solid rgba(0,229,160,.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+  }
+  .tldr-title {
+    font-size: 11px; font-family: monospace; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .1em;
+    color: var(--accent); margin-bottom: 12px;
+  }
+  .tldr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .tldr-list li {
+    font-size: 14px; color: var(--text);
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .tldr-list li::before {
+    content: '✓';
+    color: var(--accent); font-weight: 700;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* Sections */
+  .section { margin-bottom: 44px; }
+  h2 {
+    font-size: 20px; font-weight: 600; color: #fff;
+    letter-spacing: -.01em; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  h2 .num {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: rgba(0,229,160,.1); border: 1px solid rgba(0,229,160,.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-family: monospace; color: var(--accent);
+    flex-shrink: 0;
+  }
+  p { color: var(--muted2); margin-bottom: 12px; }
+  p:last-child { margin-bottom: 0; }
+  p strong { color: var(--text); font-weight: 500; }
+
+  ul, ol { color: var(--muted2); padding-left: 20px; margin-bottom: 12px; }
+  li { margin-bottom: 6px; }
+  li strong { color: var(--text); }
+
+  /* Info box */
+  .info-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  .info-box.warn {
+    background: rgba(255,79,106,.05);
+    border-color: rgba(255,79,106,.2);
+  }
+  .info-box p { color: var(--muted2); font-size: 14px; margin: 0; }
+  .info-box p strong { color: var(--text); }
+
+  /* Data table */
+  .data-table {
+    width: 100%; border-collapse: collapse;
+    margin: 16px 0; font-size: 13px;
+  }
+  .data-table th {
+    text-align: left; padding: 10px 14px;
+    font-weight: 600; font-size: 11px;
+    text-transform: uppercase; letter-spacing: .06em;
+    color: var(--muted); font-family: monospace;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+  }
+  .data-table th:first-child { border-radius: 8px 0 0 0; }
+  .data-table th:last-child  { border-radius: 0 8px 0 0; }
+  .data-table td {
+    padding: 10px 14px; color: var(--muted2);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .data-table td strong { color: var(--text); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .pill {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    font-family: monospace; padding: 2px 8px; border-radius: 4px;
+  }
+  .pill-no  { background: rgba(0,229,160,.1); color: var(--accent); }
+  .pill-yes { background: rgba(255,79,106,.1); color: #ff8096; }
+  .pill-loc { background: rgba(0,180,255,.1); color: #80d4ff; }
+
+  /* Divider */
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  /* Contact */
+  .contact-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .contact-icon {
+    width: 40px; height: 40px; background: rgba(0,229,160,.1);
+    border: 1px solid rgba(0,229,160,.2); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .contact-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .contact-sub   { font-size: 13px; color: var(--muted2); line-height: 1.6; }
+
+  /* Footer */
+  .footer {
+    margin-top: 60px; padding-top: 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 12px; color: var(--muted);
+    font-family: monospace;
+  }
+
+  @media (max-width: 600px) {
+    .content { padding: 32px 16px 0; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 17px; }
+    .meta { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">🛡️</div>
+    <div>
+      <div class="site-name">AI Privacy Guard</div>
+      <div class="site-sub">Chrome Extension</div>
+    </div>
+    <div class="badge">Privacy Policy</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="tag">Legal Document</div>
+    <h1>Privacy Policy</h1>
+    <p class="hero-sub">
+      AI Privacy Guard is built with a simple principle: your data stays on your device.
+      This policy explains exactly what we collect, what we don't, and why.
+    </p>
+    <div class="meta">
+      <span>📅 Effective date: April 2026</span>
+      <span>📋 Version: 1.0</span>
+      <span>🌐 Extension: AI Privacy Guard v0.2</span>
+    </div>
+  </div>
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <div class="tldr-title">TL;DR — The short version</div>
+    <ul class="tldr-list">
+      <li>We do <strong>not</strong> collect, store, or transmit any text you paste into the extension.</li>
+      <li>All scanning happens <strong>100% locally</strong> in your browser — nothing leaves your device.</li>
+      <li>We do <strong>not</strong> use any third-party analytics, tracking, or advertising.</li>
+      <li>The only data stored is a simple scan counter, saved locally on your device only.</li>
+      <li>No account required. No login. No cookies.</li>
+    </ul>
+  </div>
+
+  <!-- 1 -->
+  <div class="section">
+    <h2><span class="num">1</span> Who We Are</h2>
+    <p>
+      AI Privacy Guard is a Chrome browser extension developed to help users detect and mask
+      sensitive information before sending text to AI chatbots such as ChatGPT, Claude, Gemini,
+      and others. The extension is developed and maintained independently.
+    </p>
+    <p>
+      This Privacy Policy applies to the AI Privacy Guard Chrome Extension
+      (<strong>"the Extension"</strong>, <strong>"we"</strong>, <strong>"our"</strong>).
+    </p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <h2><span class="num">2</span> What the Extension Does</h2>
+    <p>The Extension provides a single, focused function:</p>
+    <ol>
+      <li>You paste text into the Extension's popup window.</li>
+      <li>The Extension scans the text locally using pattern matching (regex) to detect sensitive data such as API keys, passwords, personal identification numbers, phone numbers, emails, and financial figures.</li>
+      <li>You review the findings and choose which items to mask.</li>
+      <li>You copy the masked (safe) version to paste into an AI chatbot.</li>
+    </ol>
+    <div class="info-box">
+      <p><strong>Important:</strong> The text you paste is processed entirely within your browser's memory. It is never sent to any server, database, or third party — including us.</p>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <h2><span class="num">3</span> Data We Collect</h2>
+    <p>Here is a complete breakdown of all data interactions in the Extension:</p>
+
+    <table class="data-table">
+      <tr>
+        <th>Data Type</th>
+        <th>Collected?</th>
+        <th>Where Stored</th>
+        <th>Sent Externally?</th>
+      </tr>
+      <tr>
+        <td><strong>Text you paste</strong><br><span style="font-size:12px;">The actual content you scan</span></td>
+        <td><span class="pill pill-no">NO</span></td>
+        <td>Browser memory only, cleared when popup closes</td>
+        <td><span class="pill pill-no">NEVER</span></td>
+      </tr>
+      <tr>
+        <td><strong>Scan count</strong><br><span style="font-size:12px;">Number of times you've scanned</span></td>
+        <td><span class="pill pill-loc">LOCAL ONLY</span></td>
+        <td>chrome.storage.local on your device</td>
+        <td><span class="pill pill-no">NEVER</span></td>
+      </tr>
+      <tr>
+        <td><strong>Masked count</strong><br><span style="font-size:12px;">Number of items masked</span></td>
+        <td><span class="pill pill-loc">LOCAL ONLY</span></td>
+        <td>chrome.storage.local on your device</td>
+        <td><span class="pill pill-no">NEVER</span></td>
+      </tr>
+      <tr>
+        <td><strong>Personal information</strong><br><span style="font-size:12px;">Name, email, location, etc.</span></td>
+        <td><span class="pill pill-no">NO</span></td>
+        <td>—</td>
+        <td><span class="pill pill-no">NEVER</span></td>
+      </tr>
+      <tr>
+        <td><strong>Browsing history</strong><br><span style="font-size:12px;">Pages visited, URLs</span></td>
+        <td><span class="pill pill-no">NO</span></td>
+        <td>—</td>
+        <td><span class="pill pill-no">NEVER</span></td>
+      </tr>
+      <tr>
+        <td><strong>Clipboard contents</strong><br><span style="font-size:12px;">Read only when you press Paste button</span></td>
+        <td><span class="pill pill-no">NO</span></td>
+        <td>Not stored anywhere</td>
+        <td><span class="pill pill-no">NEVER</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <h2><span class="num">4</span> Permissions Explained</h2>
+    <p>The Extension requests the following Chrome permissions. Here is exactly why each is needed:</p>
+
+    <div class="info-box">
+      <p>
+        <strong>storage</strong> — Used exclusively to save your personal usage statistics
+        (scan count, masked count, safe count) to <code>chrome.storage.local</code>.
+        This data is stored only on your device and is never transmitted externally.
+        You can clear this data at any time by removing and reinstalling the Extension.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <p>
+        <strong>clipboardWrite</strong> — Used only when you click the "Copy" button inside the popup.
+        The Extension writes the masked (safe) version of your text to the clipboard
+        so you can paste it into your AI chatbot. The Extension does <em>not</em> read
+        your clipboard automatically or without your explicit action.
+      </p>
+    </div>
+
+    <p>The Extension does <strong>not</strong> request or use:</p>
+    <ul>
+      <li>Access to any website or tab content</li>
+      <li>Network access to external servers</li>
+      <li>Your browsing history or cookies</li>
+      <li>Camera, microphone, or location</li>
+      <li>Any other browser data</li>
+    </ul>
+  </div>
+
+  <!-- 5 -->
+  <div class="section">
+    <h2><span class="num">5</span> Remote Code</h2>
+    <p>
+      The Extension does <strong>not</strong> use any remote code. All JavaScript logic
+      is bundled within the Extension package (<code>popup.js</code>, <code>popup.css</code>).
+      No external scripts are loaded, and <code>eval()</code> is not used anywhere in the codebase.
+    </p>
+  </div>
+
+  <!-- 6 -->
+  <div class="section">
+    <h2><span class="num">6</span> Third Parties</h2>
+    <p>
+      The Extension does <strong>not</strong> integrate with, share data with, or send any
+      information to any third-party services, including but not limited to:
+    </p>
+    <ul>
+      <li>Analytics platforms (Google Analytics, Mixpanel, etc.)</li>
+      <li>Advertising networks</li>
+      <li>Cloud storage or databases</li>
+      <li>AI or machine learning APIs</li>
+      <li>Any external server of any kind</li>
+    </ul>
+    <div class="info-box warn">
+      <p>
+        <strong>Note:</strong> The Extension helps you interact more safely with third-party
+        AI services (ChatGPT, Claude, etc.), but has no affiliation with and sends no data
+        to those services itself. What you choose to paste into those services after using
+        the Extension is subject to their own privacy policies.
+      </p>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <h2><span class="num">7</span> Data Retention</h2>
+    <p>
+      The only data retained between sessions is your scan statistics (three integer counters).
+      This data is stored in <code>chrome.storage.local</code> and remains on your device only.
+    </p>
+    <p>
+      <strong>To delete all stored data:</strong> Remove the Extension from Chrome.
+      All locally stored data is deleted automatically by the browser upon uninstall.
+    </p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section">
+    <h2><span class="num">8</span> Children's Privacy</h2>
+    <p>
+      The Extension is not directed at children under the age of 13. We do not knowingly
+      collect any information from children. If you are under 13, please do not use this Extension.
+    </p>
+  </div>
+
+  <!-- 9 -->
+  <div class="section">
+    <h2><span class="num">9</span> Changes to This Policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time. When we do, we will update
+      the effective date at the top of this page and increment the version number.
+      Continued use of the Extension after changes are posted constitutes acceptance
+      of the updated policy.
+    </p>
+    <p>
+      Significant changes will be communicated through the Chrome Web Store listing update notes.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 10 Contact -->
+  <div class="section">
+    <h2><span class="num">10</span> Contact</h2>
+    <p>If you have any questions about this Privacy Policy or the Extension's data practices, please contact us:</p>
+    <div class="contact-box">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-title">Developer Contact</div>
+        <div class="contact-sub">
+          For privacy-related inquiries regarding AI Privacy Guard,
+          please reach out via the Chrome Web Store support page or
+          the GitHub repository associated with this Extension.
+          We aim to respond within 7 business days.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    AI Privacy Guard · Privacy Policy v1.0 · Effective April 2026<br>
+    <span style="color:#3a3a55;margin-top:6px;display:block;">
+      100% on-device · no data collected · no servers · no tracking
+    </span>
+  </div>
+
+</div>
+</body>
+</html>
