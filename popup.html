@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>AI Privacy Guard</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">🛡️</div>
+  <div class="header-text">
+    <div class="header-title">AI Privacy Guard</div>
+    <div class="header-sub">Paste → Scan → Copy safe</div>
+  </div>
+  <div class="status-pill">
+    <div class="sdot"></div>
+    <span class="stxt">ready</span>
+  </div>
+</div>
+
+<div class="input-section">
+  <div class="section-label">
+    <span>วาง text ที่จะส่ง AI</span>
+    <button class="clear-btn" id="clearBtn">✕ clear</button>
+  </div>
+  <textarea id="inputText"
+    placeholder="Paste text ที่นี่เลย...&#10;&#10;เช่น: API key, ชื่อลูกค้า, สัญญา, code, config file...&#10;Extension จะสแกนหาข้อมูล sensitive ทั้งหมด"></textarea>
+</div>
+
+<div class="scan-row">
+  <button class="btn-paste" id="pasteBtn">📋 Paste</button>
+  <button class="btn-scan" id="scanBtn">🔍 สแกนเลย</button>
+</div>
+
+<div id="safeBanner">✅ ไม่พบข้อมูล sensitive — ส่ง AI ได้เลย!</div>
+
+<div id="findingsSection">
+  <div class="findings-header">
+    <span class="findings-title">⚠️ พบข้อมูล sensitive</span>
+    <span class="findings-count" id="findingsCount">0 รายการ</span>
+  </div>
+  <div class="findings-list" id="findingsList"></div>
+
+  <div id="outputSection">
+    <div class="output-header">
+      <span class="output-title">🛡️ Text ที่ปลอดภัย (พร้อม Copy)</span>
+    </div>
+    <textarea id="outputText" readonly></textarea>
+    <div class="action-row">
+      <button class="btn-copy" id="copyBtn">📋 Copy ไปใช้เลย</button>
+      <button class="btn-mask-all" id="maskAllBtn">Mask ทั้งหมด</button>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="fstat"><span class="fn" id="statTotal">0</span><span class="fl">สแกนแล้ว</span></div>
+  <div class="fstat"><span class="fn warn" id="statMasked">0</span><span class="fl">masked</span></div>
+  <div class="fstat"><span class="fn safe" id="statSafe">0</span><span class="fl">ผ่านฉลุย</span></div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
